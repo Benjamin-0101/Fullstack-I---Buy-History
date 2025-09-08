@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function realizarPago() {
+      alert("✅ Compra realizada con éxito");
+      localStorage.removeItem("carrito");
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="marco">
+      <h1 class="titulo">BUY HISTORY</h1>
+      <p class="subtitulo">Finalizar Compra</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a> |
+    <a href="catalogo.html">Catálogo</a> |
+    <a href="carrito.html">Carrito</a> |
+    <a href="pago.html">Pago</a>
+  </nav>
+
+  <section class="presentacion">
+    <h2>Datos de Pago</h2>
+    <form class="caja" onsubmit="realizarPago(); return false;">
+      <label>Nombre en tarjeta:</label><br>
+      <input type="text" required><br><br>
+
+      <label>Número de tarjeta:</label><br>
+      <input type="text" maxlength="16" required><br><br>
+
+      <label>Vencimiento:</label><br>
+      <input type="text" placeholder="MM/AA" required><br><br>
+
+      <label>Código de seguridad:</label><br>
+      <input type="text" maxlength="3" required><br><br>
+
+      <button type="submit" class="boton">Aceptar</button>
+      <a href="carrito.html"><button type="button" class="boton">Volver al Carrito</button></a>
+    </form>
+  </section>
+
+  <footer>
+    <p>📍 Dirección: Av. Historia 1945, Santiago, Chile</p>
+    <p>📞 Teléfono: +56 9 7654 3210</p>
+    <p>✉️ Email: contacto@buyhistory.cl</p>
+    <hr>
+    <p>
+      <a href="#">Política de Privacidad</a> | 
+      <a href="#">Términos y Condiciones</a> | 
+      <a href="#">Bases Legales</a>
+    </p>
+    <p>&copy; 2025 BUY HISTORY. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

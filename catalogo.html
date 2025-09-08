@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function agregarCarrito(nombre, precio) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre: nombre, precio: precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(nombre + " agregado al carrito");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="marco">
+      <h1 class="titulo">BUY HISTORY</h1>
+      <p class="subtitulo">Catálogo de Objetos Históricos</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a> |
+    <a href="catalogo.html">Catálogo</a> |
+    <a href="carrito.html">Carrito</a> |
+    <a href="pago.html">Pago</a>
+  </nav>
+
+  <section class="presentacion">
+    <h2>Nuestros Productos</h2>
+
+    <div class="producto">
+      <h3>Cigarro usado por Hitler</h3>
+      <p>Precio: $50.000</p>
+      <button onclick="agregarCarrito('Cigarro usado por Hitler', 50000)">Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Sombrero de Napoleón</h3>
+      <p>Precio: $120.000</p>
+      <button onclick="agregarCarrito('Sombrero de Napoleón', 120000)">Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Pluma de Shakespeare</h3>
+      <p>Precio: $80.000</p>
+      <button onclick="agregarCarrito('Pluma de Shakespeare', 80000)">Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Moneda Romana</h3>
+      <p>Precio: $15.000</p>
+      <button onclick="agregarCarrito('Moneda Romana', 15000)">Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Máscara Egipcia</h3>
+      <p>Precio: $200.000</p>
+      <button onclick="agregarCarrito('Máscara Egipcia', 200000)">Agregar al Carrito</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>📍 Dirección: Av. Historia 1945, Santiago, Chile</p>
+    <p>📞 Teléfono: +56 9 7654 3210</p>
+    <p>✉️ Email: contacto@buyhistory.cl</p>
+    <hr>
+    <p>
+      <a href="#">Política de Privacidad</a> | 
+      <a href="#">Términos y Condiciones</a> | 
+      <a href="#">Bases Legales</a>
+    </p>
+    <p>&copy; 2025 BUY HISTORY. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

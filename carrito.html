@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function mostrarCarrito() {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      let lista = document.getElementById("listaCarrito");
+      let total = 0;
+      lista.innerHTML = "";
+      for (let i = 0; i < carrito.length; i++) {
+        let item = carrito[i];
+        lista.innerHTML += "<li>" + item.nombre + " - $" + item.precio + "</li>";
+        total += item.precio;
+      }
+      document.getElementById("total").innerText = "Total: $" + total;
+    }
+  </script>
+</head>
+<body onload="mostrarCarrito()">
+  <header>
+    <div class="marco">
+      <h1 class="titulo">BUY HISTORY</h1>
+      <p class="subtitulo">Carrito de Compras</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a> |
+    <a href="catalogo.html">Catálogo</a> |
+    <a href="carrito.html">Carrito</a> |
+    <a href="pago.html">Pago</a>
+  </nav>
+
+  <section class="presentacion">
+    <h2>Productos en tu carrito</h2>
+    <ul id="listaCarrito" class="caja"></ul>
+    <p id="total" class="caja"></p>
+    <a href="pago.html"><button class="boton">Continuar al Pago</button></a>
+  </section>
+
+  <footer>
+    <p>📍 Dirección: Av. Historia 1945, Santiago, Chile</p>
+    <p>📞 Teléfono: +56 9 7654 3210</p>
+    <p>✉️ Email: contacto@buyhistory.cl</p>
+    <hr>
+    <p>
+      <a href="#">Política de Privacidad</a> | 
+      <a href="#">Términos y Condiciones</a> | 
+      <a href="#">Bases Legales</a>
+    </p>
+    <p>&copy; 2025 BUY HISTORY. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
