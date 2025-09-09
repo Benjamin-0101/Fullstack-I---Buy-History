@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUY HISTORY - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Urban Store</h1>
+        <form id="search-form" action="search.html" method="GET">
+            <input type="text" id="search-input" name="query" placeholder="Buscar productos..." required>
+            <button type="submit">Buscar</button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href="store.html">Inicio</a></li>
+                <li><a href="products.html">Productos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="account.html">Mi Cuenta</a></li>
+                <li>
+                    <a href="cart.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Carrito" style="width: 30px; vertical-align: middle;">
+                        (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="fade-in">
+        <h1 id="product-name">Nombre del Producto</h1>
+        <div class="product-details">
+            <img id="product-image" src="" alt="Imagen del Producto" />
+            <div class="product-info">
+                <p id="product-description">Descripción del producto.</p>
+                <p class="price" id="product-price">Precio: $0.00</p>
+                <button id="add-to-cart" class="add-to-cart">Añadir al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Urban Store. Página creada y diseñada por David Salazar. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('name');
+
+        const products = {
+            "Jardinera Black": {
+                description: "Jardinera Negra Maternal. Ideal para cualquier ocasión.",
+                price: 20000,
+                image: "https://pequebox.cl/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-20-at-23.09.09.jpeg"
+            },
+            "Chaqueta Verde": {
+                description: "Chaqueta Verde Piola. Comodidad y estilo juntos.",
+                price: 25000,
+                image: "https://m.media-amazon.com/images/I/71XaJOfmCBL._AC_SX466_.jpg"
+            },
+            "Zapatillas Rosas": {
+                description: "Zapatillas Rosas Sport. Perfectas para el día a día.",
+                price: 15000,
+                image: "https://www.16hrs.cl/110748-home_default/zapatilla-mujer.jpg"
+            },
+            "Parca Negra": {
+                description: "Parca Negra con Chiporro. Calidad y diseño únicos.",
+                price: 30000,
+                image: "https://http2.mlstatic.com/D_NQ_NP_844569-CBT75412145785_032024-O.webp"
+            },
+            "Jeans White": {
+                description: "Jeans blanco aesthetic. Redefine tu look con nuestros jeans a la moda.",
+                price: 20000,
+                image: "https://i.pinimg.com/originals/1e/20/65/1e2065a7921309578256760490fbaa4b.jpg"
+            },
+            "Top Negro con Tiras": {
+                description: "Top negro para ser una verdadera perra. Vístete con actitud y expresa tu estilo.",
+                price: 12000,
+                image: "https://i.pinimg.com/736x/77/46/3b/77463be875a714ece11b9fb9a046785f.jpg"
+            }
+        };
+
+        if (productName && products[productName]) {
+            const product = products[productName];
+            document.getElementById('product-name').innerText = productName;
+            document.getElementById('product-description').innerText = product.description;
+            document.getElementById('product-price').innerText = `$${product.price.toLocaleString()}`;
+            document.getElementById('product-image').src = product.image;
+        } else {
+            document.getElementById('product-name').innerText = "Producto no encontrado";
+            document.getElementById('product-description').innerText = "";
+            document.getElementById('product-price').innerText = "";
+            document.getElementById('product-image').src = "";
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        document.getElementById('add-to-cart').addEventListener('click', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const product = {
+                name: productName,
+                price: products[productName].price,
+                image: document.getElementById('product-image').src
+            };
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} añadido al carrito`);
+            updateCartCount();
+        });
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+</body>
+</html>
