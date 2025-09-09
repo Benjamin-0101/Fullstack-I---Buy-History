@@ -55,9 +55,14 @@ section.presentacion {
   line-height: 1.8;
 }
 
-.galeria {
+
+  .galeria {
   margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap; /* permite varias filas */
+  justify-content: flex-start; /* todo hacia la izquierda */
 }
+
 
 .galeria img {
   width: 180px;
