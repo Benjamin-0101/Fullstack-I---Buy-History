@@ -63,25 +63,7 @@
             document.getElementById('product-image').src = "";
         }
 
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            document.getElementById('cart-count').innerText = cart.length;
-        }
 
-        document.getElementById('add-to-cart').addEventListener('click', () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const product = {
-                name: productName,
-                price: products[productName].price,
-                image: document.getElementById('product-image').src
-            };
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${productName} añadido al carrito`);
-            updateCartCount();
-        });
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
     </script>
 </body>
 </html>
