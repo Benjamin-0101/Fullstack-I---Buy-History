@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>BUY HISTORY - Inicio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="formulario.css">
 </head>
 <body>
   <header>
@@ -17,7 +18,8 @@
     <a href="index.html">Inicio</a> |
     <a href="catalogo.html">Catálogo</a> |
     <a href="carrito.html">Carrito</a> |
-    <a href="pago.html">Pago</a>
+    <a href="pago.html">Pago</a> |
+    <a href="contacto.html">Contacto</a>
   </nav>
 
   <section class="presentacion">
@@ -49,6 +51,21 @@
     </div>
   </section>
 
+  <section>
+    <form id="contactForm">
+      <h2>Contacto</h2>
+      
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="text" id="apellido" placeholder="Apellido" required>
+      <input type="email" id="correo" placeholder="Correo" required>
+      <input type="tel" id="telefono" placeholder="Teléfono (Ej: 987654321)" required>
+      <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+
+      <button type="submit">Enviar</button>
+      <p id="respuesta"></p>
+    </form>
+  </section>
+
   <footer>
     <p>📍 Dirección: Av. Historia 1945, Santiago, Chile</p>
     <p>📞 Teléfono: +56 9 7654 3210</p>
@@ -61,5 +78,7 @@
     </p>
     <p>&copy; 2025 BUY HISTORY. Todos los derechos reservados.</p>
   </footer>
+
+  <script src="formulario.js"></script>
 </body>
 </html>
